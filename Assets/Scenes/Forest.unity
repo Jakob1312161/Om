@@ -206,11 +206,11 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3199997, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3199996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1540405563}
+  m_Father: {fileID: 980610282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -432,7 +432,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1182779522
+--- !u!1 &980610281
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,29 +440,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1182779523}
+  - component: {fileID: 980610282}
+  - component: {fileID: 980610283}
   m_Layer: 0
-  m_Name: GroundCheck
+  m_Name: Cameraholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1182779523
+--- !u!4 &980610282
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182779522}
+  m_GameObject: {fileID: 980610281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.8430002, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 1540405563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &980610283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980610281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84386a6aa3e337d4e9840dc2d8a67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseMovment
+  sensitivity: 100
+  playerBody: {fileID: 1540405563}
 --- !u!1 &1468689018
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +604,6 @@ GameObject:
   - component: {fileID: 1540405563}
   - component: {fileID: 1540405562}
   - component: {fileID: 1540405564}
-  - component: {fileID: 1540405565}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -635,8 +650,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1468689022}
-  - {fileID: 330585546}
-  - {fileID: 1182779523}
+  - {fileID: 980610282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1540405564
@@ -651,30 +665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbaa4b98781eaf40b95e43e4113391d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 12
-  gravity: -19.62
+  controller: {fileID: 1540405562}
+  walkSpeed: 5
+  sprintSpeed: 9
   jumpHeight: 3
-  groundCheck: {fileID: 1182779523}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  swapControls: 0
---- !u!114 &1540405565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540405561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84386a6aa3e337d4e9840dc2d8a67fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MouseMovment
-  mouseSensitivity: 200
-  topClamp: -90
-  bottemClamp: 90
+  gravity: -19.62
 --- !u!1 &2083021089
 GameObject:
   m_ObjectHideFlags: 0
