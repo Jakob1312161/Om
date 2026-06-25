@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    public float recoilAmount = 1f; // Amount of recoil to apply
     public float sensitivity = 100f;
     public Transform playerBody;
 
@@ -23,5 +24,15 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    private void OnEnable()
+    {
+        Weapon.OnShoot += Reaktion;
+    }
+
+    private void Reaktion()
+    {
+        xRotation -= recoilAmount;
     }
 }
